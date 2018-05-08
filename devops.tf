@@ -30,13 +30,23 @@ module "staging_proxy" {
   proxy_name = "app.ops.happypathway.com"
   region = "us-east-1"
   service_name = "hashicorp-proxy"
+  app_name = "hashicorp"
   service_version = "1.0.0"
   env = "staging"
 }
 
+module "staging_app_v100" {
+  source = "git@github.com:HappyPathway/AwsConsulApp.git"
+  count = 2
+  service_version = "1.0.0"
+  env = "staging"
+  service_name = "hashicorp"
+  region = "us-east-1"
+}
+
 module "staging_app_v101" {
   source = "git@github.com:HappyPathway/AwsConsulApp.git"
-  count = 3
+  count = 2
   service_version = "1.0.1"
   env = "staging"
   service_name = "hashicorp"
@@ -45,7 +55,7 @@ module "staging_app_v101" {
 
 module "staging_app_v102" {
   source = "git@github.com:HappyPathway/AwsConsulApp.git"
-  count = 3
+  count = 2
   service_version = "1.0.2"
   env = "staging"
   service_name = "hashicorp"
@@ -56,13 +66,16 @@ output "staging_proxy" {
   value = "${module.staging_proxy.ip_addresses}"
 }
 
-output "staging_apps_v102" {
-  value = "${module.staging_app_v102.ip_addresses}"
+output "staging_apps_v100" {
+  value = "${module.staging_app_v100.ip_addresses}"
 }
 
 output "staging_apps_v101" {
   value = "${module.staging_app_v101.ip_addresses}"
 }
 
+output "staging_apps_v102" {
+  value = "${module.staging_app_v102.ip_addresses}"
+}
 
 
