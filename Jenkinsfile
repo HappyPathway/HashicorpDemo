@@ -1,11 +1,6 @@
 pipeline {
   agent any
   stages {
-    stage('gitpull') {
-      steps {
-        scm
-      }
-    }
     stage('init') {
       steps {
         sh '''#!/bin/bash
