@@ -1,5 +1,5 @@
 region = "us-east-1"
-env = "production"
+env = "staging"
 
 service_name = "hashicorp"
 
