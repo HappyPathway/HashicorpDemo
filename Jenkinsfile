@@ -7,6 +7,7 @@ pipeline {
 eval $(ssh-agent -s)
 ssh-add ~/.ssh/id_rsa
 source /etc/profile.d/terraform.sh
+rm -rf .terraform;
 terraform init;'''
         input(message: 'Whats the plan?', id: 'plan')
       }
