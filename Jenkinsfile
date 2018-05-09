@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('init') {
+    stage('gitpull') {
       steps {
         "def commitHash = checkout(scm).GIT_COMMIT"
       }
