@@ -18,12 +18,12 @@ eval $(ssh-agent -s)
 ssh-add ~/.ssh/id_rsa
 source /etc/profile.d/terraform.sh
 terraform refresh;'''
-          }
+      }
     }
     stage('validate') {
-          steps {
-            sh 'terraform validate'
-        }
+      steps {
+        sh 'terraform validate'
+      }
     }
     stage('plan') {
       steps {
