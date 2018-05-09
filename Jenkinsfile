@@ -3,10 +3,10 @@ pipeline {
   stages {
     stage('Deploy Infrastructure') {
       steps {
-        sh '''source /etc/profile.d/terraform.sh
+        sh '''#!/bin/bash
 
+source /etc/profile.d/terraform.sh
 terraform init;
-
 terraform apply;
 
 '''
