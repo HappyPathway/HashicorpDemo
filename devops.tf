@@ -26,7 +26,7 @@ module "service_config" {
 module "staging_deployment" {
   source = "git@github.com:HappyPathway/AwsConsulProxy.git//deployment"
   service_name = "hashicorp-proxy"
-  service_version = "1.0.0"
+  service_version = "1.0.2"
   env = "staging"
 }
 
