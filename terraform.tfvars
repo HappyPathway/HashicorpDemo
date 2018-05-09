@@ -2,6 +2,7 @@ region = "us-east-1"
 env = "production"
 
 service_name = "hashicorp"
+
 repo = "HashicorpDemo"
 
 nightshift_users = [
