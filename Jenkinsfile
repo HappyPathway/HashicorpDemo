@@ -12,15 +12,13 @@ terraform init;'''
       }
     }
     stage('refresh') {
-        stage('refresh') {
-          steps {
-            sh '''#!/bin/bash
+      steps {
+        sh '''#!/bin/bash
 eval $(ssh-agent -s)
 ssh-add ~/.ssh/id_rsa
 source /etc/profile.d/terraform.sh
 terraform refresh;'''
           }
-        }
     }
     stage('validate') {
           steps {
