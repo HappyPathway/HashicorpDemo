@@ -7,8 +7,7 @@ pipeline {
 
 source /etc/profile.d/terraform.sh
 terraform init;
-terraform apply;
-
+terraform apply -f;
 '''
       }
     }
