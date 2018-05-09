@@ -69,6 +69,15 @@ module "staging_app_v102" {
   region = "us-east-1"
 }
 
+
+terraform {
+  backend "s3" {
+    bucket = "happypathway-terraform-states"
+    key    = "infra/hashicorp"
+    region = "us-east-1"
+  }
+}
+
 output "staging_proxy" {
   value = "${module.staging_proxy.ip_addresses}"
 }
