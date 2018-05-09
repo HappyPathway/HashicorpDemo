@@ -24,7 +24,7 @@ terraform refresh;'''
         }
         stage('validate') {
           steps {
-            sh 'terrform validate'
+            sh 'terraform validate'
           }
         }
       }
