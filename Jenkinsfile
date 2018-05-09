@@ -3,8 +3,13 @@ pipeline {
   stages {
     stage('Deploy Infrastructure') {
       steps {
-        sh '''terraform init
-terraform apply'''
+        sh '''source /etc/profile.d/terraform.sh
+
+terraform init;
+
+terraform apply;
+
+'''
       }
     }
   }
