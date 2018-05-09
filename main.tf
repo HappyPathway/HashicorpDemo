@@ -25,6 +25,7 @@ module "proxy" {
   service_name = "${var.proxy_service_name}"
   app_name = "${var.service_name}"
   service_version = "${var.proxy_version}"
+  service_healthcheck = "/"
   env = "${var.env}"
 }
 
@@ -34,6 +35,7 @@ module "app_v100" {
   service_version = "${var.blue_version}"
   env = "${var.env}"
   service_name = "${var.service_name}"
+  service_healthcheck = "/"
   region = "${var.region}"
 }
 
@@ -43,6 +45,7 @@ module "app_v101" {
   service_version = "${var.green_version}"
   env = "${var.env}"
   service_name = "${var.service_name}"
+  service_healthcheck = "/"
   region = "${var.region}"
 }
 
