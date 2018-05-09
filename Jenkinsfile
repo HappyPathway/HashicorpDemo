@@ -7,7 +7,7 @@ pipeline {
 
 source /etc/profile.d/terraform.sh
 terraform init;
-terraform apply -f;
+terraform apply -auto-approve;
 '''
       }
     }
