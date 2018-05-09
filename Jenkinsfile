@@ -2,13 +2,22 @@ pipeline {
   agent any
   stages {
     stage('init') {
-      steps {
-        sh '''#!/bin/bash
+      parallel {
+        stage('init') {
+          steps {
+            sh '''#!/bin/bash
 eval $(ssh-agent -s)
 ssh-add ~/.ssh/id_rsa
 source /etc/profile.d/terraform.sh
 rm -rf .terraform;
 terraform init;'''
+          }
+        }
+        stage('Validate') {
+          steps {
+            sh 'terraform validate'
+          }
+        }
       }
     }
     stage('refresh') {
