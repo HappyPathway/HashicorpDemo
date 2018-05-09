@@ -1,0 +1,32 @@
+[
+    {
+        "Datacenter":"dc1",
+        "Node":"consul01",
+        "ServiceID":"vault:34.238.82.206:8200"
+    },
+    {
+        "Datacenter":"dc1",
+        "Node":"consul02",
+        "ServiceID":"vault:54.209.49.254:8200"
+    },
+    {
+        "Datacenter":"dc1",
+        "Node":"consul03",
+        "ServiceID":"vault:18.233.101.135:8200"
+    },
+    {
+        "Datacenter":"dc1",
+        "Node":"ip-172-31-87-148",
+        "ServiceID":"vault:172.31.87.148:8200"
+    },
+    {
+        "Datacenter":"dc1",
+        "Node":"ip-172-31-89-225",
+        "ServiceID":"vault:172.31.89.225:8200"
+    },
+    {
+        "Datacenter":"dc1",
+        "Node":"ip-172-31-89-225",
+        "ServiceID":"vault:54.209.49.254:8200"
+    }
+]

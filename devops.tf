@@ -23,6 +23,13 @@ module "service_config" {
   pagerduty_token = "${var.pagerduty_token}"
 }
 
+module "staging_deployment" {
+  source = "git@github.com:HappyPathway/AwsConsulProxy.git//deployment"
+  service_name = "hashicorp-proxy"
+  service_version = "1.0.0"
+  env = "staging"
+}
+
 # manage dev environments
 module "staging_proxy" {
   source = "git@github.com:HappyPathway/AwsConsulProxy.git"

@@ -1,0 +1,5 @@
+{
+    "Datacenter":"dc1",
+    "Node":"consul03",
+    "ServiceID":"vault:172.31.92.184:8200"
+}
