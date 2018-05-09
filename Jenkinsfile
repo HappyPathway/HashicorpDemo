@@ -12,7 +12,6 @@ terraform init;'''
       }
     }
     stage('refresh') {
-      parallel {
         stage('refresh') {
           steps {
             sh '''#!/bin/bash
@@ -22,12 +21,11 @@ source /etc/profile.d/terraform.sh
 terraform refresh;'''
           }
         }
-        stage('validate') {
+    }
+    stage('validate') {
           steps {
             sh 'terraform validate'
-          }
         }
-      }
     }
     stage('plan') {
       steps {
