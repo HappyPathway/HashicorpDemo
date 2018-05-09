@@ -3,6 +3,11 @@ pipeline {
   stages {
     stage('init') {
       steps {
+        "def commitHash = checkout(scm).GIT_COMMIT"
+      }
+    }
+    stage('init') {
+      steps {
         sh '''#!/bin/bash
 eval $(ssh-agent -s)
 ssh-add ~/.ssh/id_rsa
