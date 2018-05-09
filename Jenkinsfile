@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('gitpull') {
       steps {
-        "def commitHash = checkout(scm).GIT_COMMIT"
+        scm
       }
     }
     stage('init') {
