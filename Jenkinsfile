@@ -8,7 +8,7 @@ eval $(ssh-agent -s)
 ssh-add ~/.ssh/id_rsa
 source /etc/profile.d/terraform.sh
 rm -rf .terraform;
-terraform init;'''
+terraform init -upgrade;'''
       }
     }
     stage('Test') {
