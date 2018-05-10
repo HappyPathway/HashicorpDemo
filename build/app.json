@@ -11,7 +11,7 @@
     },
     "provisioners":[
         {
-            "source":"playbooks",
+            "source":"{{user `working_dir`}}/build/playbooks",
             "destination":"/tmp/playbooks",
             "type":"file"
         },
