@@ -1,5 +1,4 @@
-variable "github_token" {}
-variable "github_organization" {}
+variable "repo" {}
 variable "env" {
   default = "staging"
 }
@@ -16,14 +15,10 @@ variable "admins" {
     type = "list"
 }
 
-variable "pagerduty_token" {}
 
 variable "deployment_version" {}
-
 variable "blue_version" {}
 variable "green_version" {}
-
-variable "repo" {}
 
 variable "region" {
     default = "us-east-1"
