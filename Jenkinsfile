@@ -1,6 +1,11 @@
 pipeline {
   agent any
   stages {
+    stage('Build') {
+      steps {
+        sh "python build/scripts/build.py"
+      }
+    }
     stage('Test') {
           steps {
             sh 'terraform validate'
@@ -48,5 +53,11 @@ source /etc/profile.d/terraform.sh
 terraform apply -auto-approve;'''
       }
     }
+
+    stage('Promote') {
+      steps {
+        input(message: 'Should we promote ?', id: 'go')
+    }
+
   }
 }

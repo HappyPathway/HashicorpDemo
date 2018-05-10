@@ -1,14 +1,31 @@
 {
     "variables":{
         "source_ami":"ami-43a15f3e",
+        "color":"red",
         "service_name":"",
+        "region":"us-east-1",
         "home_dir":"{{env `HOME`}}",
         "instance_type":"m4.large",
         "working_dir":"{{env `PWD`}}",
-        "version":"1.0.0",
-        "color": "red"
+        "version":"1.0.0"
     },
-    
+    "provisioners":[
+        {
+            "source":"playbooks",
+            "destination":"/tmp/playbooks",
+            "type":"file"
+        },
+        {
+            "inline":[
+                "sudo apt-get update",
+                "sudo apt-get install -y python-pip",
+                "sudo pip install -r /tmp/playbooks/requirements.txt",
+                "sudo ansible-playbook /tmp/playbooks/app_install.yaml -e color={{user `color`}}",
+                "sudo rm -rf /tmp/playbooks"
+            ],
+            "type":"shell"
+        }
+    ],
     "builders":[
         {
             "source_ami":"{{user `source_ami`}}",
@@ -27,24 +44,6 @@
             "force_deregister":true,
             "force_delete_snapshot":true,
             "type":"amazon-ebs"
-        }
-    ],
-
-    "provisioners":[
-        {
-            "source":"playbooks",
-            "destination":"/tmp/playbooks",
-            "type":"file"
-        },
-        {
-            "inline":[
-                "sudo apt-get update",
-                "sudo apt-get install -y python-pip",
-                "sudo pip install -r /tmp/playbooks/requirements.txt",
-                "sudo ansible-playbook /tmp/playbooks/app_install.yaml -e color={{user `color`}}",
-                "sudo rm -rf /tmp/playbooks"
-            ],
-            "type":"shell"
         }
     ]
 }
