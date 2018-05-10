@@ -8,11 +8,7 @@ source /etc/profile.d/terraform.sh
 ./build/scripts/build.py'''
       }
     }
-    stage('Test') {
-      steps {
-        sh 'terraform validate'
-      }
-    }
+    
     stage('init') {
       steps {
         sh '''#!/bin/bash
@@ -23,6 +19,14 @@ rm -rf .terraform;
 terraform init;'''
       }
     }
+
+    stage('Test') {
+      steps {
+        sh 'terraform validate'
+      }
+    }
+
+    
     stage('refresh') {
       steps {
         sh '''#!/bin/bash
