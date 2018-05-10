@@ -17,18 +17,14 @@ variable "admins" {
 
 
 variable "deployment_version" {}
-variable "blue_version" {}
-variable "green_version" {}
+variable "alpha_version" {}
+variable "bravo_version" {}
 
 variable "region" {
     default = "us-east-1"
 }
 
-variable "green_instances" {
-    default = 2
-}
-
-variable "blue_instances" {
+variable "app_instances" {
     default = 2
 }
 

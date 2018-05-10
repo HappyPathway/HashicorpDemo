@@ -28,20 +28,20 @@ module "proxy" {
   env = "${var.env}"
 }
 
-module "app_v100" {
+module "app_Alpha" {
   source = "git@github.com:HappyPathway/AwsConsulApp.git"
-  count = "${var.blue_instances}"
-  service_version = "${var.blue_version}"
+  count = "${var.app_instances}"
+  service_version = "${var.alpha_version}"
   env = "${var.env}"
   service_name = "${var.service_name}"
   service_healthcheck = "/"
   region = "${var.region}"
 }
 
-module "app_v101" {
+module "app_Bravo" {
   source = "git@github.com:HappyPathway/AwsConsulApp.git"
-  count = "${var.green_instances}"
-  service_version = "${var.green_version}"
+  count = "${var.app_instances}"
+  service_version = "${var.bravo_version}"
   env = "${var.env}"
   service_name = "${var.service_name}"
   service_healthcheck = "/"
