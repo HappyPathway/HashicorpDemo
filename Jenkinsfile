@@ -27,7 +27,6 @@ ssh-add ~/.ssh/id_rsa
 source /etc/profile.d/terraform.sh
 source environments/staging
 terraform refresh;'''
-        sh 'source environments/staging'
       }
     }
     stage('plan') {
@@ -36,6 +35,7 @@ terraform refresh;'''
 eval $(ssh-agent -s)
 ssh-add ~/.ssh/id_rsa
 source /etc/profile.d/terraform.sh
+source environments/staging
 terraform plan;
 '''
         input(message: 'All Systems Go?', id: 'go')
