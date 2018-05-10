@@ -13,6 +13,8 @@ terraform init;'''
     }
     stage('Test') {
       steps {
+        sh 'source environments/staging'
+        sh 'terraform workspace select staging'
         sh 'terraform validate'
       }
     }
