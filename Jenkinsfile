@@ -65,7 +65,7 @@ terraform apply -auto-approve;'''
       steps {
         sh "promoting..."
         input(message: 'Should we promote ?', id: 'go')
+      }
     }
-
   }
 }
