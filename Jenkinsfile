@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build Image') {
           steps {
-            sh "python build/scripts/build.py"
+            sh "./build/scripts/build.py"
           }
         }
 
