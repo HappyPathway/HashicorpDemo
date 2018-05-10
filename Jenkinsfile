@@ -1,6 +1,12 @@
 pipeline {
   agent any
   stages {
+    stage('Test') {
+          steps {
+            sh 'terraform validate'
+          }
+        }
+
     stage('init') {
       steps {
         sh '''#!/bin/bash
@@ -11,6 +17,7 @@ rm -rf .terraform;
 terraform init;'''
       }
     }
+
     stage('refresh') {
       steps {
         sh '''#!/bin/bash
@@ -20,11 +27,7 @@ source /etc/profile.d/terraform.sh
 terraform refresh;'''
           }
     }
-    stage('validate') {
-          steps {
-            sh 'terraform validate'
-        }
-    }
+
     stage('plan') {
       steps {
         sh '''#!/bin/bash
