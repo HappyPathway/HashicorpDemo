@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
+    stage('Build Image') {
           steps {
             sh "python build/scripts/build.py"
           }
