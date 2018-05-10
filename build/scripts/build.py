@@ -57,7 +57,7 @@ def build_image(build_data):
 
 def lookup_image(build_data):
     script_path = os.path.dirname(__file__)
-    cmd = "python {0}/ami_lookup.py --version={1} --service={2} --region={3}".format(
+    cmd = "{0}/ami_lookup.py --version={1} --service={2} --region={3}".format(
         script_path,
         build_data.get("version"),
         build_data.get("service_name"),
@@ -75,7 +75,7 @@ def lookup_image(build_data):
     
 def set_image(build_data, ami):
     script_path = os.path.dirname(__file__)
-    cmd = "python {0}/set_ami.py --version={1} --service={2} --ami={3}".format(
+    cmd = "{0}/set_ami.py --version={1} --service={2} --ami={3}".format(
         script_path,
         build_data.get("version"),
         build_data.get("service_name"),
