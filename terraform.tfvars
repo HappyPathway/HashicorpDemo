@@ -1,6 +1,4 @@
 region = "us-east-1"
-env = "staging"
-
 service_name = "hashicorp"
 
 repo = "HashicorpDemo"
@@ -21,16 +19,16 @@ devs = [
     "happymemes"
 ]
 
-
 proxy_version = "1.0.0"
 proxy_service_name = "hashicorp-proxy"
 proxy_name = "hashicorp.ops.happypathway.com"
+
 deployment_version = "1.0.0"
 
+alpha_version = "1.0.0"
+bravo_version = "1.0.1"
+app_instances = 2
 
-blue_version = "1.0.0"
-blue_instances = 2
 
-green_version = "1.0.1"
-green_instances = 2
+
 

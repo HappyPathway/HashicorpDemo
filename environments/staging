@@ -1,0 +1,4 @@
+export TF_VAR_deployment_version=1.0.0
+export TF_VAR_alpha_version=1.0.0
+export TF_VAR_bravo_version=1.0.1
+export TF_VAR_app_instances=2
