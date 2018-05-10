@@ -38,7 +38,7 @@ source /etc/profile.d/terraform.sh
 source environments/staging
 terraform plan;
 '''
-        input(message: 'All Systems Go?', id: 'go')
+        input(message: 'All Systems Go?', id: 'Go')
       }
     }
     stage('apply') {
