@@ -3,7 +3,8 @@ pipeline {
   stages {
     stage('Build Image') {
       steps {
-        sh '''source /etc/profile.d/terraform.sh
+        sh '''#!/bin/bash
+source /etc/profile.d/terraform.sh
 ./build/scripts/build.py'''
       }
     }
