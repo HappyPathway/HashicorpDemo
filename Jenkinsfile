@@ -1,14 +1,6 @@
 pipeline {
   agent any
   stages {
-    stage('Build Image') {
-      steps {
-        sh '''#!/bin/bash
-source /etc/profile.d/terraform.sh
-./build/scripts/build.py'''
-      }
-    }
-    
     stage('init') {
       steps {
         sh '''#!/bin/bash
@@ -19,21 +11,20 @@ rm -rf .terraform;
 terraform init;'''
       }
     }
-
     stage('Test') {
       steps {
         sh 'terraform validate'
       }
     }
-
-
     stage('refresh') {
       steps {
+        sh 'terraform workspace select staging'
         sh '''#!/bin/bash
 eval $(ssh-agent -s)
 ssh-add ~/.ssh/id_rsa
 source /etc/profile.d/terraform.sh
 terraform refresh;'''
+        sh 'source environments/staging'
       }
     }
     stage('plan') {
