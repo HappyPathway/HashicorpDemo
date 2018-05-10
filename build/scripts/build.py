@@ -5,11 +5,25 @@ import shlex
 import os
 import sys
 
-defaults = dict(color="blue", version="1.0.0", service_name="hashicorp", region="us-east-1")
+defaults = dict (
+            color="blue", 
+            version="1.0.0", 
+            service_name="hashicorp", 
+            region="us-east-1"
+        )
 
-def load_build_data():
+def sanitize_path(path):
+    path = os.path.expanduser(path)
+    path = os.path.expandvars(path)
+    path = os.path.abspath(path)
+    return path
+
+def load_build_data(config):
     try:
-        with open("deployment.json") as data_file:
+        config_file = sanitize_path(config)
+        if not os.path.exists(config_file):
+            raise Exception("{0} does not exist. resorting to defaults".format(config_file))
+        with open(config) as data_file:
             d = json.loads(data_file.read())
         build_data = d
     except:
@@ -89,8 +103,8 @@ def set_image(build_data, ami):
         raise Exception("SetImage:\nstdout:{0}\nstderr:{1}".format(str(out), str(err)))
     return out
 
-def main():
-    build_data = load_build_data()
+def main(opt):
+    build_data = load_build_data(opt.config)
     print build_data
     set_packer(build_data)
     build_image(build_data)
@@ -99,4 +113,8 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    from optparse import OptionParser
+    parser = OptionParser()
+    parser.add_option("--config")
+    opt, args = parser.parse_args()
+    main(opt)

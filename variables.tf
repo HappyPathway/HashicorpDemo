@@ -1,7 +1,6 @@
 variable "repo" {}
-variable "env" {
-  default = "staging"
-}
+variable "env" {}
+
 variable "service_name" {}
 variable "proxy_service_name" {}
 variable "proxy_version" {}
@@ -24,9 +23,7 @@ variable "region" {
     default = "us-east-1"
 }
 
-variable "app_instances" {
-    default = 2
-}
+variable "app_instances" {}
 
 variable "dayshift_users" {
     type = "list"
