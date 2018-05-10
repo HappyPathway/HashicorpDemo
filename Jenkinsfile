@@ -51,16 +51,5 @@ source environments/staging
 terraform apply -auto-approve;'''
       }
     }
-    stage('destroy') {
-      steps {
-        input(message: 'Should we Destroy ?', id: 'go')
-        sh '''#!/bin/bash
-eval $(ssh-agent -s)
-ssh-add ~/.ssh/id_rsa
-source /etc/profile.d/terraform.sh
-source environments/staging
-terraform destroy -force;'''
-      }
-    }
   }
 }
