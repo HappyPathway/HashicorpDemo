@@ -48,7 +48,7 @@ def build_image(build_data):
                      defaults.get("color"),
                      os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-    p = subprocess.Popen(shlex.split(cmd), stdout=sys.stdout, stderr=sys.stderr)
+    p = subprocess.Popen(shlex.split(cmd), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
     if p.returncode > 0:
         raise Exception("BuildImage:\nstdout:{0}\nstderr:{1}".format(str(out), str(err)))
