@@ -13,18 +13,19 @@ terraform init;'''
     }
     stage('Test') {
       steps {
-        sh 'source environments/staging'
-        sh 'terraform workspace select staging'
-        sh 'terraform validate'
+        sh '''#!/bin/bash
+source environments/staging
+terraform workspace select staging
+terraform validate'''
       }
     }
     stage('refresh') {
       steps {
-        sh 'terraform workspace select staging'
         sh '''#!/bin/bash
 eval $(ssh-agent -s)
 ssh-add ~/.ssh/id_rsa
 source /etc/profile.d/terraform.sh
+source environments/staging
 terraform refresh;'''
         sh 'source environments/staging'
       }
