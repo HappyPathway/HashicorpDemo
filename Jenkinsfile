@@ -26,7 +26,7 @@ terraform init;'''
       }
     }
 
-    
+
     stage('refresh') {
       steps {
         sh '''#!/bin/bash
@@ -56,10 +56,14 @@ source /etc/profile.d/terraform.sh
 terraform apply -auto-approve;'''
       }
     }
-    stage('Promote') {
+    stage('destroy') {
       steps {
-        sh 'promoting...'
-        input(message: 'Should we promote ?', id: 'go')
+        sh '''#!/bin/bash
+eval $(ssh-agent -s)
+ssh-add ~/.ssh/id_rsa
+source /etc/profile.d/terraform.sh
+terraform destroy -force;'''
+        input(message: 'Should we Destroy ?', id: 'go')
       }
     }
   }

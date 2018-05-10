@@ -36,6 +36,7 @@ module "app_Alpha" {
   service_name = "${var.service_name}"
   service_healthcheck = "/"
   region = "${var.region}"
+  server_pool = "alpha"
 }
 
 module "app_Bravo" {
@@ -46,5 +47,6 @@ module "app_Bravo" {
   service_name = "${var.service_name}"
   service_healthcheck = "/"
   region = "${var.region}"
+  server_pool = "bravo"
 }
 
