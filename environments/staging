@@ -2,5 +2,5 @@ export TF_VAR_env=staging
 export TF_VAR_deployment_version=1.0.1
 export TF_VAR_alpha_version=1.0.0
 export TF_VAR_bravo_version=1.0.1
-export TF_VAR_app_instances=2
+export TF_VAR_app_instances=1
 export TF_VAR_proxy_name=hashicorp-staging.ops.happypathway.com
