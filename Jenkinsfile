@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('init') {
+    stage('Init') {
       steps {
         sh '''#!/bin/bash
 eval $(ssh-agent -s)
@@ -19,7 +19,7 @@ terraform workspace select staging
 terraform validate'''
       }
     }
-    stage('refresh') {
+    stage('Refresh') {
       steps {
         sh '''#!/bin/bash
 eval $(ssh-agent -s)
@@ -29,7 +29,7 @@ source environments/staging
 terraform refresh;'''
       }
     }
-    stage('plan') {
+    stage('Plan') {
       steps {
         sh '''#!/bin/bash
 eval $(ssh-agent -s)
@@ -41,7 +41,7 @@ terraform plan;
         input(message: 'All Systems Go?', id: 'Go')
       }
     }
-    stage('apply') {
+    stage('Apply') {
       steps {
         sh '''#!/bin/bash
 eval $(ssh-agent -s)
