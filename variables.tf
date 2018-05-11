@@ -32,3 +32,5 @@ variable "dayshift_users" {
 variable "nightshift_users" {
     type = "list"
 }
+
+variable "setup_services" {}

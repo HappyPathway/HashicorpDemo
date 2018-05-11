@@ -6,6 +6,7 @@ module "service_config" {
   repo = "${var.repo}"
   nightshift_users = "${var.nightshift_users}"
   dayshift_users = "${var.dayshift_users}"
+  setup = "${var.setup_services}"
 }
 
 module "deployment" {

@@ -1,0 +1,21 @@
+{
+    "environments/production/hashicorp-proxy/dns_name":"ops.happypathway.com.",
+    "environments/production/hashicorp-proxy/dns_zone":"Z14Q4HNSAERQT2",
+    "environments/production/hashicorp-proxy/instance_type":"t2.small",
+    "environments/production/hashicorp-proxy/instance_user":"ubuntu",
+    "environments/production/hashicorp-proxy/key_pair":"id_rsa",
+    "environments/production/hashicorp-proxy/port":80,
+    "environments/production/hashicorp-proxy/private_zone":"False",
+    "environments/production/hashicorp-proxy/security_group":"sg-dc2dc794",
+    "environments/production/hashicorp-proxy/subnet_id":"subnet-a9915286",
+    "environments/production/hashicorp-proxy/version":"1.0.0",
+    "environments/production/hashicorp/1.0.0/ami":"ami-ebd65494",
+    "environments/production/hashicorp/dns_name":"ops.hhashicorpypathway.com.",
+    "environments/production/hashicorp/dns_zone":"Z14Q4HNSAERQT2",
+    "environments/production/hashicorp/instance_type":"t2.small",
+    "environments/production/hashicorp/instance_user":"ubuntu",
+    "environments/production/hashicorp/key_pair":"id_rsa",
+    "environments/production/hashicorp/private_zone":"False",
+    "environments/production/hashicorp/security_group":"sg-dc2dc794",
+    "environments/production/hashicorp/subnet_id":"subnet-a9915286"
+}
