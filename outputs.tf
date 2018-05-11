@@ -22,10 +22,10 @@ output "alpha_dns_nodes" {
   value = "${module.app_Alpha.dns_nodes}"
 }
 
-output "beta_dns" {
-  value = "${module.app_Beta.dns}"
+output "bravo_dns" {
+  value = "${module.app_Bravo.dns}"
 }
 
-output "beta_dns_nodes" {
-  value = "${module.app_Beta.dns_nodes}"
+output "bravo_dns_nodes" {
+  value = "${module.app_Bravo.dns_nodes}"
 }
