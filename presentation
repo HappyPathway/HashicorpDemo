@@ -23,9 +23,7 @@ measures to be encapsulated into modules that easily enable self-service for dev
 
 Terraform becomes the enabler of DevOps. What is DevOps? 
 DevOps is the collaboration between developers and operations. 
-When Operations provides re-usable modules that address all of operations concerns regarding
-updated packages, firewall rules, and any other pertinent configuration to a Development team...
-These modules become the contract between Developers and Operations. 
+When Operations provide re-usable modules that address operational concerns regarding updated packages, firewall rules, and any other pertinent configuration to Development teams, These modules become the contract between Developers and Operations. 
 Just like library developers creating libraries for application developers. 
 The internals are encapsulate... 
 
